@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_register"
+    android:padding="10dp"
+    android:fillViewport="false">
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Source"
+        android:background="@color/input_register_bg"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:inputType="textCapWords"
+        android:textColor="@color/input_register"
+        android:textColorHint="@color/input_register_hint" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/name"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

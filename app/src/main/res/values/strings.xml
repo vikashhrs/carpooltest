@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CarPoolTest</string>
+
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Login</string>
+    <string name="invalid_email">This email address is invalid</string>
+    <string name="invalid_password">Password is too short</string>
+    <string name="incorrect_password">Password is incorrect</string>
+    <string name="field_required">This field is required</string>
+    <string name="action_sign_up">New User?Sign Up</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_link_to_register">Not a Member?Sign Up!</string>
+    <string name="btn_link_to_login">Already Registered! Click To Log IN</string>
+    <string name="btn_register">Register</string>
+    <string name="hint_name">Full Name</string>
+    <string name="re_hint_password">Re Enter Password</string>
+    <string name="title_activity_contact">ContactActivity</string>
+
+</resources>

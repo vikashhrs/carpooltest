@@ -18,7 +18,7 @@
         android:textColor="@color/input_register"
         android:textColorHint="@color/input_register_hint" />
 
-    <ListView
+     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listView"

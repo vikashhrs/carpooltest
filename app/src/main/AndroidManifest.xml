@@ -18,7 +18,10 @@
         <activity
             android:name=".SignUpActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".RideChoiceActivity" android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".RideChoiceActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".RideSetupActivity"></activity>
     </application>
 
 </manifest>

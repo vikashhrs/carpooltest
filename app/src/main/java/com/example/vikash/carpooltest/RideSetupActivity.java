@@ -18,6 +18,7 @@ public class RideSetupActivity extends AppCompatActivity implements ListView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setup_ride_share);
         listView = (ListView)findViewById(R.id.locationListView);
+        listView.setOnItemClickListener(this);
         locations = getLocations();
         customLocationListViewAdapter = new CustomLocationListViewAdapter(getApplicationContext(),R.layout.custom_listview_item,locations);
         listView.setAdapter(customLocationListViewAdapter);
@@ -39,7 +40,11 @@ public class RideSetupActivity extends AppCompatActivity implements ListView.OnI
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Location location = (Location)adapterView.getItemAtPosition(i);
-        location.setStatusChecked(true);
+        if(location.isStatusChecked()){
+            location.setStatusChecked(false);
+        }else {
+            location.setStatusChecked(true);
+        }
         updateLocationList(location);
     }
     private void updateLocationList(Location location){

@@ -25,7 +25,7 @@ public class CustomLocationListViewAdapter extends ArrayAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-        View view = layoutInflater.inflate(R.layout.custom_listview_item, parent);
+        View view = layoutInflater.inflate(R.layout.custom_listview_item, parent,false);
         Location location = (Location)getItem(position);
         TextView textView = (TextView)view.findViewById(R.id.locationName);
         textView.setText(location.getLocationName());

@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button logInButton;
     private Button signUpButton;
     private ProgressBar progressBar;
-    private static final String REGISTER_URL = "https://carpooltest2017.herokuapp.com/users/signin";
+    private static final String LOGIN_URL = "https://carpooltest2017.herokuapp.com/users/signin";
     public static final String KEY_EMPID = "empID";
     public static final String KEY_PASSWORD = "password";
     //public static final String KEY_EMAIL = "email";
@@ -87,18 +87,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("empID", empID);
         jsonObject.put("password", password);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, REGISTER_URL, jsonObject,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, LOGIN_URL, jsonObject,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         Toast.makeText(MainActivity.this, "LogIn Succesfull", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(getApplicationContext(),RideChoiceActivity.class));
+                        serializeToken(response);
+                        Credentials credentials = getCredentials();
+                        Bundle data = new Bundle();
+                        data.putSerializable("credentials",credentials);
+                        startActivity(new Intent(getApplicationContext(),RideChoiceActivity.class).putExtra("data",data));
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(MainActivity.this, "empID/password wrong \n Login failure", Toast.LENGTH_SHORT).show();
                     }
                 }) {
             @Override

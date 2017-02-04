@@ -9,7 +9,8 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:background="@color/bg_register"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="48dp">
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -19,10 +20,10 @@
             android:paddingLeft="20dp"
             android:paddingRight="20dp" >
             <EditText
-                android:id="@+id/empid"
+                android:id="@+id/empID"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_name"
+                android:hint="Employee ID"
                 android:layout_marginBottom="10dp"
                 android:background="@color/input_register_bg"
                 android:padding="10dp"
@@ -45,61 +46,13 @@
                 android:textColorHint="@color/input_register_hint" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/phone"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="@color/input_register_bg"
-                android:hint="@string/hint_email"
-                android:inputType="textEmailAddress"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_register"
-                android:textColorHint="@color/input_register_hint" />
-            <EditText
-                android:id="@+id/home"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_name"
-                android:layout_marginBottom="10dp"
-                android:background="@color/input_register_bg"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:inputType="textCapWords"
-                android:textColor="@color/input_register"
-                android:textColorHint="@color/input_register_hint" />
-            <EditText
-                android:id="@+id/office"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_name"
-                android:layout_marginBottom="10dp"
-                android:background="@color/input_register_bg"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:inputType="textCapWords"
-                android:textColor="@color/input_register"
-                android:textColorHint="@color/input_register_hint" />
-            <EditText
-                android:id="@+id/vehicleno"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@color/input_register_bg"
-                android:hint="Enter Vehivle Number"
-                android:inputType="textPassword"
-                android:padding="10dp"
-                android:singleLine="true"
-                android:textColor="@color/input_register"
-                android:textColorHint="@color/input_register_hint" />
-            <EditText
-                android:id="@+id/modelName"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@color/input_register_bg"
-                android:hint="Enter Model Name"
-                android:inputType="textPassword"
+                android:hint="Contact Number"
+                android:inputType="number"
                 android:padding="10dp"
                 android:singleLine="true"
                 android:textColor="@color/input_register"
@@ -146,7 +99,7 @@
             <!-- Link to Login Screen -->
 
             <Button
-                android:id="@+id/btnLinkToLoginScreen"
+                android:id="@+id/btnLogin"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"

@@ -33,16 +33,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private EditText emailText;
+    private EditText empIDText;
     private EditText passwordText;
     private Button logInButton;
     private Button signUpButton;
     private ProgressBar progressBar;
-    private static final String REGISTER_URL = "https://contactmanager05.herokuapp.com/users/signin";
-
-    public static final String KEY_USERNAME = "username";
+    private static final String REGISTER_URL = "https://carpooltest2017.herokuapp.com/users/signin";
+    public static final String KEY_EMPID = "empID";
     public static final String KEY_PASSWORD = "password";
-    public static final String KEY_EMAIL = "email";
+    //public static final String KEY_EMAIL = "email";
     private RequestQueue requestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.login_activity);
         requestQueue = Volley.newRequestQueue(getApplicationContext());
         //emailTextView = (AutoCompleteTextView) findViewById(R.id.email);
-        emailText = (EditText)findViewById(R.id.email);
+        empIDText = (EditText)findViewById(R.id.empID);
         //progressBar = (ProgressBar) findViewById(R.id.login_progress);
         //passwordText = (EditText) findViewById(R.id.password);
         passwordText = (EditText)findViewById(R.id.password);
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = view.getId();
         if (id == R.id.btnLogin) {
             Toast.makeText(getApplicationContext(), "Sign IN button Clicked", Toast.LENGTH_LONG).show();
-            progressBar.setVisibility(View.VISIBLE);
+            //progressBar.setVisibility(View.VISIBLE);
             try {
                 if(isOnline()) {
                     getToken();
@@ -83,25 +82,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void getToken() throws JSONException {
         String token = null;
-        final String username = emailText.getText().toString().trim();
+        final String empID = empIDText.getText().toString().trim();
         final String password = passwordText.getText().toString().trim();
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("email", username);
+        jsonObject.put("empID", empID);
         jsonObject.put("password", password);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, REGISTER_URL, jsonObject,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        progressBar.setVisibility(View.INVISIBLE);
-                        Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_LONG).show();
-                        serializeToken(response);
+                        Toast.makeText(MainActivity.this, "LogIn Succesfull", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(),RideChoiceActivity.class));
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();
-                        Toast.makeText(MainActivity.this,"Login Failure",Toast.LENGTH_LONG).show();
+
                     }
                 }) {
             @Override
@@ -112,10 +109,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return headers;
             }
         };
-        //add request to queue
+
         requestQueue.add(jsonObjectRequest);
 
-        //return token;
     }
     public void serializeToken(JSONObject response){
         File file = new File(getFilesDir(),"credentials");

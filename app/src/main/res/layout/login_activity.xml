@@ -24,13 +24,12 @@
             android:paddingRight="20dp">
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/empID"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-
-                android:hint="@string/hint_email"
-                android:inputType="textEmailAddress"
+                android:hint="EmpID"
+                android:inputType="text"
                 android:padding="10dp"
                 android:singleLine="true"
                 android:background="@color/input_register_bg"

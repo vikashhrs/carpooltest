@@ -18,5 +18,7 @@
     <string name="hint_name">Full Name</string>
     <string name="re_hint_password">Re Enter Password</string>
     <string name="title_activity_contact">ContactActivity</string>
-
+    <string name="home_address">Home</string>
+    <string name="office_address">Office</string>
+    <string name="emp_id">Empolyee Id</string>
 </resources>
